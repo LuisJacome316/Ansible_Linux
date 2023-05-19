@@ -1,0 +1,10 @@
+---
+- name: Ansible with Linux
+  hosts: node1
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Print IP and Hostname
+      debug:
+        msg: "The IPV4 is {{ ansible_default_ipv4.address }} and the hostname is {{ ansible_hostname }}"

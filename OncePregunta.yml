@@ -1,0 +1,22 @@
+---
+- name: Ansible with Linux
+  hosts: node1
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Get the hostname
+      debug:
+        msg: "This is the hostname {{ ansible_hostname }}"
+
+    - name: Change the hostname
+      hostname:
+        name: Reto2
+
+    - name: Reboot Server
+      reboot:
+
+    - name: Get the hostname
+      debug:
+        msg: "This is the hostname {{ ansible_hostname }}"
+
