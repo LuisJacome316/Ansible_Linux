@@ -1,0 +1,14 @@
+---
+- name: Ansible with Linux
+  hosts: node1
+  become: true
+  tasks:
+    - name: Access to Database user md5
+	postgresql_db:
+        name: mydatabase
+	community.postgresql.postgresql_user:
+        name: luisj
+        password: luisj
+	  superuser: yes
+        encrypted: md5  
+        
