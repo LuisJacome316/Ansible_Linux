@@ -1,0 +1,18 @@
+--- 
+- name: Ansible with Linux  
+  hosts: node1
+  become: true
+  tasks:  
+  - name: Update packages    
+    yum:
+      name: '*'
+      state: latest
+
+  - name: Install Postgress
+    yum:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - postgresql
+      - postgresql-contrib
+      - postgresql-server

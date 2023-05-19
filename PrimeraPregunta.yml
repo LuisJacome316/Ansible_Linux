@@ -1,0 +1,5 @@
+--- 
+- name: Ansible with Linux  
+  hosts: web
+  become: true
+
