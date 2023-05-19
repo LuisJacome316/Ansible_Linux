@@ -1,0 +1,10 @@
+--- 
+- name: Ansible with Linux  
+  hosts: node1
+  become: true
+  tasks:
+    - name: Enable and activate the PostgreSQL service
+      service:
+        name: postgresql
+        state: started
+        enabled: true

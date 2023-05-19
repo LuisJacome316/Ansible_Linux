@@ -1,0 +1,9 @@
+---
+- name: Ansible with Linux  
+  hosts: localhost
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Intall module community.postgresql
+      command: ansible-galaxy collection install community.postgresql
