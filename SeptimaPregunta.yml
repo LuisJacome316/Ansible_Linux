@@ -1,0 +1,11 @@
+---
+- name: Ansible with Linux
+  hosts: node1
+  become: true
+  tasks:
+    - name: Grant Access to Database
+      community.postgresql.postgresql_privs:
+        database: mydatabase
+        role: luisj
+        privs: ALL
+        grant_option: yes
