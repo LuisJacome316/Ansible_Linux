@@ -1,0 +1,24 @@
+---
+- name: Ansible with Linux
+  hosts: node1
+  gather_facts: false
+  become: true
+  collections:
+    - community.postgresql
+
+  tasks:
+    - name: Create Backup Directory
+      file:
+        path: /tmp/backup_db
+        state: directory
+        mode: '0755'
+
+
+    - name: "Back up the database"
+      postgresql_db:
+        state: dump
+        name: mydatabase
+        target: /tmp/backup_db
+      become: yes
+      become_user: postgres
+        
